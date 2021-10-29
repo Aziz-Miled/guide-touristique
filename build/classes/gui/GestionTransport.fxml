@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="pane" fx:id="pane" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #fafad2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionTransportController">
+   <children>
+      <Button fx:id="idAjouter" layoutX="164.0" layoutY="458.0" mnemonicParsing="false" onAction="#Modifier" text="Ajouter" />
+      <ImageView fx:id="image" fitHeight="138.0" fitWidth="202.0" layoutX="15.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/voiture.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageBus" fitHeight="101.0" fitWidth="217.0" layoutX="249.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/Bus.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageTaxi" fitHeight="126.0" fitWidth="186.0" layoutX="497.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/taxiii.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="idTable" layoutX="70.0" layoutY="240.0" prefHeight="200.0" prefWidth="540.0">
+        <columns>
+          <TableColumn fx:id="idType" prefWidth="539.0" text="Type De Transport" />
+        </columns>
+      </TableView>
+      <Button fx:id="idSupprimer" layoutX="472.0" layoutY="458.0" mnemonicParsing="false" onAction="#Supprimer" text="Supprimer" />
+   </children>
+</AnchorPane>
