@@ -1,0 +1,29 @@
+{% extends 'base2.html.twig' %}
+
+{% block PageContent %}
+
+
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id OffreHotel</th>
+            <td>{{ offreh.idOffreh }}</td>
+        </tr>
+        <tr>
+            <th>Nom Offre</th>
+            <td>{{ offreh.nomOffre }}</td>
+        </tr>
+        <tr>
+            <th>Prix Offre</th>
+            <td>{{ offreh.prixOffre }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('offreh_index') }}">back to list</a>
+
+    <a href="{{ path('offreh_edit', {'idOffreh': offreh.idOffreh}) }}">edit</a>
+    {{ include('offreh/_delete_form.html.twig') }}
+{% endblock %}

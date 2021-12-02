@@ -1,0 +1,38 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}OffreHotel{% endblock %}
+
+{% block body %}
+    <h1>OffreHotel</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ offre_hotel.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom Hotel</th>
+            <td>{{ offre_hotel.idH.nom }}</td>
+        </tr>
+        <tr>
+            <th>Nom Offre</th>
+            <td>{{ offre_hotel.idO.nomOffre }}</td>
+        </tr>
+        <tr>
+            <th>Prix Offre</th>
+            <td>{{ offre_hotel.idO.prixOffre }}</td>
+        </tr>
+        <tr>
+            <th>EtatOffreHotel</th>
+            <td>{{ offre_hotel.etatOffreHotel }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('offre_hotel2_index') }}">back to list</a>
+
+    <a href="{{ path('offre_hotel2_edit', {'id': offre_hotel.id}) }}">edit</a>
+
+    {{ include('offre_hotel2/_delete_form.html.twig') }}
+{% endblock %}

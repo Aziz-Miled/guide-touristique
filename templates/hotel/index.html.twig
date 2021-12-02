@@ -1,0 +1,108 @@
+{% extends 'base2.html.twig' %}
+
+
+         {% block PageContent %}
+
+
+             <h1>Hotel List</h1>
+             <div class="row">
+                 <div class="col-12">
+                     <div class="card my-4">
+                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                                 <h6 class="text-white text-capitalize ps-3">Table</h6>
+                             </div>
+                         </div>
+                         <div class="card-body px-0 pb-2">
+                             <div class="table-responsive p-0">
+                                 <table class="table align-items-center mb-0" id="tabres">
+                                     <thead>
+                                     <tr>
+                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">IdHotel</th>
+                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nom</th>
+                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Adresse</th>
+                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tel</th>
+                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
+                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PageWeb</th>
+                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PrixNuite</th>
+                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">NombreEtoile</th>
+                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">NbchambresMax</th>
+                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">NbchambresReserve</th>
+                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">image</th>
+
+                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
+
+                                         <th class="text-secondary opacity-7"></th>
+                                     </tr>
+                                     </thead>
+                                     <tbody>
+
+                                     <tr>
+                                         {% for hotel in hotels %}
+                                     <tr>
+
+                                         <td>{{ hotel.idHotel }}</td>
+                                         <td>{{ hotel.nom }}</td>
+                                         <td>{{ hotel.adresse }}</td>
+                                         <td>{{ hotel.tel }}</td>
+                                         <td>{{ hotel.email }}</td>
+                                         <td>{{ hotel.pageWeb }}</td>
+                                         <td>{{ hotel.prixNuite }}</td>
+                                         <td>{{ hotel.nombreEtoile }}</td>
+                                         <td>{{ hotel.nbchambresMax }}</td>
+                                         <td>{{ hotel.nbchambresReserve }}</td>
+                                         <td><img src="{{ asset(hotel.image) }} " style="width: 100px;"/></td>
+
+
+
+                                         <td class="align-middle text-center text-sm">
+                                <span class="badge badge-sm bg-gradient-success">
+
+                                 <a href="{{ path('hotel_show', {'idHotel': hotel.idHotel}) }}">show</a>
+                                </span>
+                                             <span class="badge badge-sm bg-gradient-success">
+
+                                <a href="{{ path('hotel_edit', {'idHotel': hotel.idHotel}) }}">edit</a>
+                                </span>
+                                             <span class="badge badge-sm bg-gradient-success">
+
+                                             <a href="{{ path('offre_hotel_show', {'idH': hotel.idHotel}) }}"> offre </a>
+</span>
+                                         </td>
+
+                                     </tr>
+                                     {% else %}
+                                         <tr>
+                                             <td colspan="7">no records found</td>
+                                         </tr>
+                                     {% endfor %}
+                                     </tr>
+
+                                     </tbody>
+                                 </table>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <script>
+                 $(document).ready(function(){
+                     $('#search').keyup(function(){
+                         search_table($(this).val());});
+                     function search_table(value){
+                         $('#tabres tbody tr ').each(function(){
+                             var found = 'false';
+                             $(this).each(function(){
+                                 if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                 {
+                                     found = 'true';
+                                 }});
+                             if(found == 'true')
+                             {
+                                 $(this).show();
+                             }
+                             else
+                             {$(this).hide();}}); }});
+             </script>
+
+         {% endblock %}

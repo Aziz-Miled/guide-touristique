@@ -1,0 +1,11 @@
+{% extends "base2.html.twig" %}
+
+{% block PageContent %}
+
+    <h1>Create new ReservationHotel</h1>
+
+    {{ include('reservation_hotel/_form.html.twig') }}
+
+    <a href="{{ path('reservation_hotel_index') }}">back to list</a>
+
+{%endblock%}

@@ -1,0 +1,72 @@
+{% extends 'base2.html.twig' %}
+
+{% block PageContent %}
+
+
+    <h1>OffreHotel List</h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                        <h6 class="text-white text-capitalize ps-3">Table</h6>
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0" id="tabres">
+                            <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id OffreHotel</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nom Hotel</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nom Offre</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Prix Offre</th>
+
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">actions</th>
+                                <th class="text-secondary opacity-7"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                {% for offre_hotel in offre_hotels  %}
+                            <tr>
+
+                                <td>{{ offre_hotel.id }}</td>
+                                <td>{{ offre_hotel.idH.nom }}</td>
+                                <td>{{ offre_hotel.idO.getNomOffre() }}</td>
+                                <td>{{ offre_hotel.idO.getPrixOffre() }}</td>
+
+
+                                <td class="align-middle text-center text-sm">
+                                <span class="badge badge-sm bg-gradient-success">
+
+                                 <a href="{{ path('offre_hotel_show', {'id': offre_hotel.id}) }}">show</a>
+
+                                </span>
+                                    <span class="badge badge-sm bg-gradient-success">
+
+                                 <a href="{{ path('offre_hotel_edit', {'id': offre_hotel.id}) }}">edit</a>
+
+                                             </span>
+
+                                </td>
+
+                            </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="5">no records found</td>
+                                </tr>
+                            {% endfor %}
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+

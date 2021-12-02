@@ -1,0 +1,62 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}Hotel{% endblock %}
+
+{% block body %}
+    <h1>Hotel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdHotel</th>
+                <td>{{ hotel.idHotel }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ hotel.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ hotel.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ hotel.tel }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ hotel.email }}</td>
+            </tr>
+            <tr>
+                <th>PageWeb</th>
+                <td>{{ hotel.pageWeb }}</td>
+            </tr>
+            <tr>
+                <th>PrixNuite</th>
+                <td>{{ hotel.prixNuite }}</td>
+            </tr>
+            <tr>
+                <th>NombreEtoile</th>
+                <td>{{ hotel.nombreEtoile }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ hotel.etat }}</td>
+            </tr>
+            <tr>
+                <th>NbchambresMax</th>
+                <td>{{ hotel.nbchambresMax }}</td>
+            </tr>
+            <tr>
+                <th>NbchambresReserve</th>
+                <td>{{ hotel.nbchambresReserve }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('hotel2_index') }}">back to list</a>
+
+    <a href="{{ path('hotel2_edit', {'idHotel': hotel.idHotel}) }}">edit</a>
+
+    {{ include('hotel2/_delete_form.html.twig') }}
+{% endblock %}

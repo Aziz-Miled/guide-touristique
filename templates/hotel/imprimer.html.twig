@@ -1,0 +1,43 @@
+{% block body %}
+    <h1 align ="center">Liste de hotel</h1><hr>
+
+
+    <table class="table table-striped table-bordered" >
+        <thead>
+        <tr>
+            <th>Id hotel</th>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>tel</th>
+            <th>email</th>
+            <th>pageWeb</th>
+            <th>prixNuite</th>
+            <th>nombreEtoile</th>
+            <th>nbchambresMax</th>
+            <th>nbchambresReserve</th>
+            <th>image</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for resmaison in resmaisons %}
+            <tr>
+                <td>{{ resmaison.idHotel }}</td>
+                <td>{{ resmaison.nom }}</td>
+                <td>{{ resmaison.adresse }}</td>
+                <td>{{ resmaison.tel }}</td>
+                <td>{{ resmaison.email }}</td>
+                <td>{{ resmaison.pageWeb }}</td>
+                <td>{{ resmaison.prixNuite }}</td>
+                <td>{{ resmaison.nombreEtoile }}</td>
+                <td>{{ resmaison.nbchambresMax }}</td>
+                <td>{{ resmaison.nbchambresReserve }}</td>
+                <td>{{ resmaison.image }}</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

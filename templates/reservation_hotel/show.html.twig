@@ -1,0 +1,37 @@
+{% extends "base2.html.twig" %}
+{% block PageContent %}
+
+
+    <h1>Reservation Hotel</h1>
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>IdReservation</th>
+            <td>{{ reservation_hotel.idReservation }}</td>
+        </tr>
+        <tr>
+            <th>Datedebut</th>
+            <td>{{ reservation_hotel.datedebut ? reservation_hotel.datedebut|date('Y-m-d') : ''  }}</td>
+        </tr>
+        <tr>
+            <th>Datefin</th>
+            <td>{{ reservation_hotel.datefin ? reservation_hotel.datefin|date('Y-m-d') : ''  }}</td>
+        </tr>
+        <tr>
+            <th>Nbchambres</th>
+            <td>{{ reservation_hotel.nbchambres  }}</td>
+        </tr>
+        <tr>
+            <th>Idh</th>
+            <td>{{ reservation_hotel.idh }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('reservation_hotel_index') }}">back to list</a>
+
+
+    {{ include('reservation_hotel/_delete_form.html.twig') }}
+{% endblock %}
+

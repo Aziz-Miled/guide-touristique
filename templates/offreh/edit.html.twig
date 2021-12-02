@@ -1,0 +1,11 @@
+{% extends 'base2.html.twig' %}
+
+{% block PageContent %}
+
+    {{ include('offreh/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('offreh_index') }}">back to list</a>
+
+    {{ include('offreh/_delete_form.html.twig') }}
+
+{% endblock %}

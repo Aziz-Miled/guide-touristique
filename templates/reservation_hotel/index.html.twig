@@ -1,0 +1,76 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}ReservationHotel index{% endblock %}
+
+{% block PageContent %}
+    <h1>ReservationHotel List</h1>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                        <h6 class="text-white text-capitalize ps-3">Table</h6>
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    IdReservation
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Datedebut
+                                </th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Datefin
+                                </th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Nbchambres
+                                </th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Idh
+                                </th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    actions
+                                </th>
+                                <th class="text-secondary opacity-7"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for reservation_hotel in reservation_hotels %}
+
+
+                                <tr {% if reservation_hotel.datedebut|date() < "now"|date_modify('+5 day')|date() %} style="background:linear-gradient(#D81B60FF, #f0f0f0)" {% endif %}>
+                                    <td>{{ reservation_hotel.idReservation }}</td>
+                                    <td>{{ reservation_hotel.datedebut ? reservation_hotel.datedebut|date('Y-m-d') : '' }}</td>
+                                    <td>{{ reservation_hotel.datefin ? reservation_hotel.datefin|date('Y-m-d') : '' }}</td>
+                                    <td>{{ reservation_hotel.nbchambres }}</td>
+                                    <td>{{ reservation_hotel.idh }}</td>
+                                    <td class="align-middle text-center text-sm">
+                                        <span class="badge badge-sm bg-gradient-success">
+                                            <a href="{{ path('reservation_hotel_show', {'idReservation': reservation_hotel.idReservation}) }}">Show</a>
+                                        </span>
+{#                                        <span class="badge badge-sm bg-gradient-success">#}
+{#                                            <a href="{{ path('notify', {'idReservation': reservation_hotel.idReservation}) }}">Notify</a>#}
+{#                                        </span>#}
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <a href="{{ path('reservation_hotel_new') }}">Create new</a>
+{% endblock %}
